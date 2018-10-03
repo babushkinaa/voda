@@ -73,7 +73,7 @@ class User extends Authenticatable
     public function updateUser($request, User $user)
     {
 //        dd($user,$request->all());
-        if($request->file('image') && $user->image !== 'noimage.png'):
+        if($request->file('image') && $user->image !== 'avatar/noimage.png'):
             unlink('storage/'.$user->image);
         endif;
         $user->update([
@@ -144,7 +144,7 @@ class User extends Authenticatable
         $user = new User();
         $user = $user->where('id',$id)->first();
 
-        if ($request->file('image') && $user->image !== 'noimage.png'):
+        if ($request->file('image') && $user->image !== 'avatar/noimage.png'):
             unlink('storage/'.$user->image);
         endif;
 

@@ -6,65 +6,82 @@
 @section('content')
 
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header">
-                        @include('include.search')
-                    </div>
-                    <div class="card-body">
-                        @if (session('status'))
-                            <div class="alert alert-success" role="alert">
-                                {{ session('status') }}
-                            </div>
-                        @endif
-                        <div class="clearfix"></div>
 
-                            @include('include.breadcrumb')
+        <div class="col-md-12">
 
-                            <div class="row col-md-12">
+{{--{{dump($order->owertimes)}}--}}
+        </div>
 
-                            <div class="col-md-2 list-group">
-                                <button type="button" class="list-group-item">Bootstrap</button>
-                                <button type="button" class="list-group-item">Laravel</button>
-                                <button type="button" class="list-group-item">NodeJs</button>
-                                <button type="button" class="list-group-item">VueJs</button>
-                                <button type="button" class="list-group-item">JavaScript</button>
-                                <button type="button" class="list-group-item">CSS</button>
-                            </div>
+        <div class="col-md-12">
 
-                            <div class="col-md-10">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h3 class="panel-title"><a href="#"> Компонент: Eloquent ORM</a></h3>
-                                    </div>
-                                    <div class="panel-body">
-                                        Easily add a heading container to your panel with .panel-heading. You may also include any  with a .panel-title class to add a pre-styled heading. However, the font sizes of  are overridden by .panel-heading.
+            <div class="table-responsive">
 
-                                                        For proper link coloring, be sure to place links in headings within .panel-title.
-                                    </div>
-                                    <br>
-                                </div>
+                <table class="table table-striped">
 
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h3 class="panel-title"><a href="#"> Компонент: Eloquent ORM</a></h3>
-                                    </div>
-                                    <div class="panel-body">
-                                        Easily add a heading container to your panel with .panel-heading. You may also include any  with a .panel-title class to add a pre-styled heading. However, the font sizes of  are overridden by .panel-heading.
+                    <tr class="info"><a href="#">
+                        <td class="info"> {{$order->id}} </td>
+                        <td class="info"> {{$order->id_pu}} </td>
+                        <td class="info"> {{$order->zone->zone}} </td>
+                        <td class="info"> {{$order->status->status}} </td>
+                        <td class="info">
 
-                                                        For proper link coloring, be sure to place links in headings within .panel-title.
-                                    </div>
-                                    <br>
-                                </div>
+                            @if($order->owertimes == null)
+                                {{'Без выезда'}}
+                            @else
+                                {{'Выезда'}}
+                            @endif
 
-                            </div>
+                        </td>
+                        <td class="info">
 
+                            @if($order->liveobjects == null)
+                                {{'Без отключение'}}
+                            @else
+                                {{'Есть отключения'}}
+                            @endif
 
-                        </div>
-                    </div>
-                </div>
+                        </td>
+                        <td class="info">
+
+                            @if($order->disablewaternet == null)
+                                {{'Без отключение'}}
+                            @else
+                                {{'Есть отключения'}}
+                            @endif
+
+                        </td>
+                        <td class="info"> {{$order->categories->name}} </td>
+                        <td class="info"> {{$order->types->type}} </td>
+                        <td class="info"> {{$order->create_time}} </td>
+                        <td class="info"> {{$order->start_time}} </td>
+                        <td class="info"> {{$order->closed_time}} </td>
+                        <td class="info"> {{$order->comment}} </td>
+                        <td class="info"> {{$order->addres}} </td>
+                        <td class="info">
+                            @if($order->dds == 0)
+                                {{'неотправлена'}}
+                                @else
+                                {{'отправлена'}}
+                            @endif
+                        </td>
+                        </a></tr>
             </div>
         </div>
-    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @endsection

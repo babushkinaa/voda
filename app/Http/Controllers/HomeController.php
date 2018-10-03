@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -33,7 +34,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-      return view('home.home');
+
+
+        $oraders = Order::where('id',1)->first();
+//dump($oraders->disablewaternet);
+      return view('home.home',[
+          'order' => $oraders
+      ]);
     }
 
     public function tech()

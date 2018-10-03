@@ -37,6 +37,13 @@ Route::prefix('admin')->group(function (){
     Route::post('/role/updaterole/{id}','AdminController@updaterole')->name('updaterole');
     Route::get('/role/delete/{id}','AdminController@deleterole')->name('deleterole');
 
+    Route::get('/categores','ContentController@showAllCategory')->name('show.categores');
+    Route::get('/categores/add','ContentController@addCategory')->name('add.categores');
+    Route::post('/categores/add','ContentController@categoryAdd')->name('categores.add');
+    Route::get('/categores/edit/{id}','ContentController@editCategory')->name('categores.edit');
+    Route::post('/categores/update/{id}','ContentController@categoryUpdate')->name('update.categores');
+    Route::get('/categores/delete/{id}','ContentController@deleteCategory')->name('delete.categores');
+
 });
 
 Route::prefix('user')->group(function (){

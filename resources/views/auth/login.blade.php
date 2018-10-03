@@ -24,10 +24,10 @@
                 <div class="col-md-6">
                     <br><br><br><br><br>
                     {{Form::label('username', 'Login', $attributes = ['class'=>'col-form-label'])}}
-                        <input id="email" type="text" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" name="username" value="{{ old('username') }}" required autofocus>
-                        @if ($errors->has('email'))
+                        <input id="username" type="text" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" name="username" value="{{ old('username') }}" required autofocus>
+                        @if ($errors->has('username'))
                             <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('email') }}</strong>
+                                        <strong>{{ $errors->first('username') }}</strong>
                                     </span>
                         @endif
                     <br>
